@@ -1,15 +1,14 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 import { gql, graphql } from 'react-apollo';
 
-class ProfileHeader extends Component {
-  render() {
-    if(this.props.data.loading) {
-      return <div>Loading...</div>;
+const ProfileHeader = ({ data }) => (
+  <div>
+    {
+      data.user &&
+      <div>{data.user.name}</div>
     }
-    console.log(this.props.data.user);
-    return <div>{this.props.data.user.name}</div>;
-  }
-}
+  </div>
+);
 
 ProfileHeader.propTypes = {
   data: PropTypes.shape({

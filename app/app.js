@@ -26,7 +26,8 @@ import { makeSelectLocationState } from 'containers/App/selectors';
 // Import Language Provider
 import LanguageProvider from 'containers/LanguageProvider';
 
-import { ApolloClient, ApolloProvider } from 'react-apollo';
+import { ApolloProvider } from 'react-apollo';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 
 // Load the favicon, the manifest.json file and the .htaccess file
 /* eslint-disable import/no-unresolved, import/extensions */
@@ -47,6 +48,10 @@ import './global-styles';
 import createRoutes from './routes';
 
 import apolloClient from './bootstrap/apollo';
+
+// Needed for onTouchTap
+// http://stackoverflow.com/a/34015469/988941
+injectTapEventPlugin();
 
 // Create redux store with history
 // this uses the singleton browserHistory provided by react-router
