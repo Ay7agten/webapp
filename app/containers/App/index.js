@@ -15,7 +15,6 @@ import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import defaultTheme from 'themes/default';
-import AppBar from 'material-ui/AppBar';
 
 export default class App extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
 
@@ -27,7 +26,6 @@ export default class App extends React.PureComponent { // eslint-disable-line re
     return (
       <MuiThemeProvider muiTheme={getMuiTheme(defaultTheme)}>
         <div>
-          <AppBar />
           {React.Children.toArray(this.props.children)}
         </div>
       </MuiThemeProvider>
