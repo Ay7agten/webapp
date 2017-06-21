@@ -82,25 +82,12 @@ const SocialButtonContainer = styled.div`
   }
 `;
 
-function onLogoutClick() {
-  localStorage.removeItem('Authorization');
-  location.reload();
-}
-
 export default class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
-
-  componentWillMount() {
-
-  }
 
   render() {
     return (
       <HomePageContainer>
-        <Header
-          onLogoutClick={() => {
-            onLogoutClick();
-          }}
-        />
+        <Header />
         <BodyContainer>
           <LeftMetaContainer>
             <LeftMetaTitle>

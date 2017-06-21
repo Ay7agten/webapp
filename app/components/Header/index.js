@@ -52,7 +52,18 @@ Header.propTypes = {
   onLogoutClick: React.PropTypes.func,
 };
 
-function Header({ onLogoutClick }) {
+function onLogoutClick() {
+  localStorage.removeItem('Authorization');
+  location.reload();
+}
+
+function Header({ logoutIcon }) {
+  if ( !localStorage.getItem('Authorization')) {
+    logoutIcon = {
+      display: 'none'
+    }
+  }
+
   return (
     <HeaderContainer>
       <LeftIconContainer>
@@ -64,7 +75,7 @@ function Header({ onLogoutClick }) {
         Taco Resume
       </BrandName>
       <RightIconContainer>
-        <LogoutIconContainer>
+        <LogoutIconContainer style={logoutIcon}>
           <LogoutLogo onClick={onLogoutClick} />
         </LogoutIconContainer>
       </RightIconContainer>
