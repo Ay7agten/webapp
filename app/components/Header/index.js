@@ -30,11 +30,11 @@ const BrandName = styled.h3`
 `;
 
 const LeftIconContainer = styled.div`
-  display: flex; 
+  display: flex;
 `;
 
 const RightIconContainer = styled.div`
-  display: flex; 
+  display: flex;
   flexDirection: row-reverse;
 `;
 
@@ -48,20 +48,17 @@ const LogoutIconContainer = styled.div`
   width: 25px;
 `;
 
-Header.propTypes = {
-  onLogoutClick: React.PropTypes.func,
-};
-
 function onLogoutClick() {
   localStorage.removeItem('Authorization');
   location.reload();
 }
 
-function Header({ logoutIcon }) {
-  if ( !localStorage.getItem('Authorization')) {
-    logoutIcon = {
-      display: 'none'
-    }
+function Header() {
+  let logoutIconStyle;
+  if (!localStorage.getItem('Authorization')) {
+    logoutIconStyle = {
+      display: 'none',
+    };
   }
 
   return (
@@ -75,7 +72,7 @@ function Header({ logoutIcon }) {
         Taco Resume
       </BrandName>
       <RightIconContainer>
-        <LogoutIconContainer style={logoutIcon}>
+        <LogoutIconContainer style={logoutIconStyle}>
           <LogoutLogo onClick={onLogoutClick} />
         </LogoutIconContainer>
       </RightIconContainer>

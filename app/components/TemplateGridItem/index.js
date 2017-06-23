@@ -1,24 +1,26 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Card, CardMedia, CardTitle} from 'material-ui/Card';
+import { Card, CardTitle } from 'material-ui/Card';
 
 const ItemContainer = styled(Card)`
   width: 100%;
   & > div {
-    padding: 0 !important; 
+    padding: 0 !important;
   }
-`
+  cursor: pointer;
+`;
 
-const CardImageContainer = styled(CardMedia)`
-`
-const imageUri = "https://upload.wikimedia.org/wikipedia/en/3/38/Avatarjakeneytiri.jpg";
+TemplateGridItem.propTypes = {
+  imageUri: React.PropTypes.string.isRequired,
+  cardTitle: React.PropTypes.string.isRequired,
+  onClick: React.PropTypes.func.isRequired,
+};
 
-function TemplateGridItem() {
+function TemplateGridItem({ imageUri, cardTitle, onClick }) {
   return (
-    <ItemContainer>
-      <CardImageContainer />
-        <img src={imageUri} width='100%'/>
-      <CardTitle>asdasdasdsd</CardTitle>
+    <ItemContainer onClick={onClick}>
+      <img src={imageUri} alt="Template" width="100%" />
+      <CardTitle>{ cardTitle }</CardTitle>
     </ItemContainer>
   );
 }
