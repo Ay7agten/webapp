@@ -49,6 +49,10 @@ import createRoutes from './routes';
 
 import apolloClient from './bootstrap/apollo';
 
+// Function to save the returned token from the queryparameter into the localStorage and then remove it from the URI
+import { getToken } from './utils/token';
+getToken();
+
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
 injectTapEventPlugin();
